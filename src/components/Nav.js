@@ -4,11 +4,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import NavBar from './NavBar'
 
 class Header extends Component{
-  <nav>
-    <MuiThemeProvider>
-      <NavBar />
-    </MuiThemeProvider>
-  </nav>
+  render(){
+    return(
+      <nav>
+        <MuiThemeProvider>
+          <NavBar />
+        </MuiThemeProvider>
+      </nav>
+
+    )
+  }
 }
 
 export default Header
