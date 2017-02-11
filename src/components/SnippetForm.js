@@ -11,7 +11,7 @@ class SnippetForm extends Component {
     var snippet = this.state.snippet
     this.props.onSnippetAction(snippet)
     this.setState({
-      todo: ""
+      snippet: ""
     })
   }
   render(){
@@ -23,7 +23,7 @@ class SnippetForm extends Component {
             onChange={e => this.onChange(e)}
             placeholder='paste your code here'
             type='text'
-            value={(this.state && this.state.snippet) || ''} />
+            value={(this.state && this.state.snippet.title) || ''} />
           <button
             type='submit'>
             {this.props.buttonName}

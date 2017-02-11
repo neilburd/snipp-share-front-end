@@ -1,47 +1,90 @@
 import React, {Component} from 'react'
+import CodeMirror from 'react-codemirror';
+import update from 'immutability-helper';
+
+require('codemirror/lib/codemirror.css');
+require('codemirror/mode/javascript/javascript');
+require('codemirror/mode/xml/xml');
+require('codemirror/mode/markdown/markdown');
+require('codemirror/addon/display/placeholder');
 
 class CreateSnippetForm extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      snippet: ''
+      snippet:{
+        title:'',
+        code:'',
+        language:''
+      }
     }
+    //this.editorOnChange = this.editorOnChange.bind(this)
   }
-  onInputChange(event){
+
+  onInputChange(propertyName, event){
+    let snippet = this.state.snippet
+    snippet[propertyName] = event.target.value
     this.setState({
-      snippet: event.taget.value
+      snippet: snippet
     })
   }
-  onformSubmit(event){
+
+  editorOnChange(newValue){
+    // let snippet = this.state.snippet
+    this.setState({
+      snippet: update(this.state.snippet, {
+        code: { $set: newValue }
+      })
+    })
+    // console.log(this.state.snippet);
+  }
+
+  onFormSubmit(event){
     event.preventDefault()
     let snippet = this.state.snippet
-    this.props.createTodo(todo)
+    this.props.createSnippet(snippet);
+    // console.log(this.state.snippet);
     this.setState({
-      snippet:""
+      snippet: update(this.state.snippet, {
+        title:    { $set: '' },
+        code:     { $set: '' },
+        language: { $set: '' }
+      })
     })
-  }
-  onSubmit(event){
-    event.preventDefault()
-    let snippet = this.state.snippet
-    this.props.createSnippet(snippet)
-    this.setState({
-      todo:""
-    })
+    // console.log(this.state.snippet);
   }
   render(){
+    var options = {
+        lineNumbers: true,
+        placeholder: "paste your snippet here..."
+    }
     return(
       /// This is where I will put the CodeMirror
-      <div className='createForm todoForm'>
-        <h2>Create a Snippet</h2>
+      <div className='createForm todoForm snippetContainer'>
+        <h2>Create Snippet Here!</h2>
         <form onSubmit={event => this.onFormSubmit(event)}>
           <input
-            onChange={event => this.onInputChange(event)}
-            placeholder='paste in you code'
+            name='title'
+            onChange={event => this.onInputChange('title', event)}
+            placeholder='Paste title here ...'
             type='text'
-            value={this.state.snippet} />
-          <button type='submit'>
-            Create A Snippet!
-          </button>
+            value={this.state.snippet.title}
+            />
+          <input
+            name='language'
+            onChange={event => this.onInputChange('language', event)}
+            placeholder='Paste Snippet here ...'
+            type='text'
+            value={this.state.snippet.language}
+            />
+          <button type='submit'>Create Snippet!</button>
+          <CodeMirror
+            name="code"
+            ref="snippet"
+            options={options}
+            value={this.state.snippet.code}
+            onChange={(e) => this.editorOnChange(e)}
+             />
         </form>
       </div>
     )

@@ -6,7 +6,7 @@ import SnippetsContainer from '../containers/SnippetsContainer.js';
 module.exports = (
   <Route path='/' component={ App } >
     <Route
-      path='/todos'
+      path='/snippets'
       component={ SnippetsContainer } />
   </Route>
 )

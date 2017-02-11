@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import NavBar from './NavBar'
+// import {Link} from 'react-router';
 
 class Header extends Component{
   render(){

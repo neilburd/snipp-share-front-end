@@ -8,13 +8,13 @@ class SnippetModel {
   static create(snippet) {
     let request = axios.post("http://localhost:3000/snippets", snippet)
     return request
-    }
-    static delete(snippet){
+  }
+  static delete(snippet){
     let request = axios.delete(`http://localhost:3000/snippets/${snippet.id}`)
     return request
-    }
+  }
     static update(snippet){
-      let request = axios.put(`http://localhost:3000/snippets/${snippet.id}`, {code: todo.code})
+      let request = axios.put(`http://localhost:3000/snippets/${snippet.id}`, {code: snippet.code})
       return request
     }
   }
