@@ -1,14 +1,29 @@
 import React, {Component} from 'react';
 // import {Link} from 'react-router';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class Header extends Component{
   render(){
     return(
-      <nav>
-        <MuiThemeProvider>
-          <NavBar />
-        </MuiThemeProvider>
-      </nav>
+      <Navbar  collapseOnSelect>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#">Snipp-Share</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <NavItem eventKey={1} href="#">Link Right</NavItem>
+        <NavItem eventKey={2} href="#">Link Right</NavItem>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
 
     )
   }

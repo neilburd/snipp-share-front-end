@@ -3,6 +3,11 @@ import Snippets from '../components/Snippets'
 import CreateSnippetForm from '../components/CreateSnippetForm';
 import SnippetModel from '../models/Snippet';
 // import update from 'immutability-helper';
+import 'bootstrap/dist/css/bootstrap.css'
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Panel from 'react-bootstrap/lib/Panel';
 
 class SnippetsContainer extends Component{
   constructor(props){
@@ -44,16 +49,24 @@ class SnippetsContainer extends Component{
 
   render(){
     return(
-      <div className='snippetComponent'>
-        <CreateSnippetForm
-          createSnippet={this.createSnippet.bind(this)}
-          snippet={this.state.snippet}
-          />
-        <Snippets
-          snippets={this.state.snippets}
-          />
+      <Grid>
+        <Row>
+          <Col xs={12} md={8} >
+            <Panel>
+              <CreateSnippetForm
+                createSnippet={this.createSnippet.bind(this)}
+                snippet={this.state.snippet}
+                />
+            </Panel>
+          </Col>
 
-      </div>
+          <Col xs={6} md={4} >
+            <Snippets
+              snippets={this.state.snippets}
+              />
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

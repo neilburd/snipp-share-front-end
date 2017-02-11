@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Snippet from './Snippet'
 
-require('../App.css');
 
 class Snippets extends Component {
 
@@ -20,12 +19,12 @@ class Snippets extends Component {
     },this)
     return(
 
-      <div className="snippetContainer">
-        <div className="snippets incomplete col-md-6">
+        <div>
           <h2>Snippets</h2>
           {allSnippets}
         </div>
-      </div>
+
+
 
     )
   }

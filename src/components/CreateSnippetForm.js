@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import CodeMirror from 'react-codemirror';
 import update from 'immutability-helper';
+import Panel from 'react-bootstrap/lib/Panel';
+
+
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 require('codemirror/addon/display/placeholder');
+require('codemirror/theme/material.css');
 
 class CreateSnippetForm extends Component{
   constructor(props){
@@ -56,12 +60,13 @@ class CreateSnippetForm extends Component{
   render(){
     var options = {
         lineNumbers: true,
-        placeholder: "paste your snippet here..."
+        placeholder: "paste your snippet here...",
+        theme: 'material'
     }
     return(
       /// This is where I will put the CodeMirror
       <div className='createForm todoForm snippetContainer'>
-        <h2>Create Snippet Here!</h2>
+        <h2>New Snippet</h2>
         <form onSubmit={event => this.onFormSubmit(event)}>
           <input
             name='title'
