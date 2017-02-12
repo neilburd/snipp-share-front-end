@@ -29,10 +29,17 @@ class SnippetsContainer extends Component{
     }.bind(this))
   }
   handleDeleteSnippet(snippet){
-    SnippetModel.delete(snippet.id).then(function(res){
+    let allSnippets = this.state.snippets
+    let index = allSnippets.indexOf(snippet)
+    // console.log(index);
+    SnippetModel.deleteSnippet(snippet).then(function(res){
+      console.log(res.data);
+      console.log(this.state.snippets);
+      allSnippets.splice(index, 1);
       this.setState({
-        snippets: res.data
+        snippets: allSnippets
       })
+      console.log(this.state.snippets);
     }.bind(this))
   }
   createSnippet(snippet){

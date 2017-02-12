@@ -9,7 +9,7 @@ class SnippetModel {
     let request = axios.post("http://localhost:3000/snippets", snippet)
     return request
   }
-  static delete(snippet){
+  static deleteSnippet(snippet){
     let request = axios.delete(`http://localhost:3000/snippets/${snippet.id}`)
     return request
   }
