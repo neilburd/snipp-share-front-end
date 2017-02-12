@@ -1,16 +1,20 @@
 import React, {Component} from 'react'
 import Snippet from './Snippet'
+import Panel from 'react-bootstrap/lib/Panel';
 
 
 class Snippets extends Component {
 
   render(){
-    var allSnippets = this.props.snippets.map(function(snippet, index){
+    var allSnippets = this.props.snippets.reverse().map(function(snippet, index){
       return(
+        <Panel key={snippet.id} >
           <Snippet
             key={snippet.id}
             snippet={snippet}
+            onDeleteTodo={this.props.onDeleteTodo}
           />
+        </Panel>
           // onDeleteSnippet={this.props.onDeleteSnippet}
           // receiveState={this.props.onReceiveState}
           // editedSnpippetId={this.props.editedSnpippetId}
@@ -20,7 +24,7 @@ class Snippets extends Component {
     return(
 
         <div>
-          <h2>Snippets</h2>
+          <h2>All Snippets</h2>
           {allSnippets}
         </div>
 

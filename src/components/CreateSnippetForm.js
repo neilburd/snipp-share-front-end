@@ -1,8 +1,15 @@
 import React, {Component} from 'react'
 import CodeMirror from 'react-codemirror';
 import update from 'immutability-helper';
-import Panel from 'react-bootstrap/lib/Panel';
+import '../App.css';
 
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
 
 
 require('codemirror/lib/codemirror.css');
@@ -10,7 +17,7 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
 require('codemirror/addon/display/placeholder');
-require('codemirror/theme/material.css');
+require('codemirror/theme/monokai.css');
 
 class CreateSnippetForm extends Component{
   constructor(props){
@@ -61,36 +68,71 @@ class CreateSnippetForm extends Component{
     var options = {
         lineNumbers: true,
         placeholder: "paste your snippet here...",
-        theme: 'material'
+        theme: 'monokai'
     }
     return(
       /// This is where I will put the CodeMirror
-      <div className='createForm todoForm snippetContainer'>
-        <h2>New Snippet</h2>
-        <form onSubmit={event => this.onFormSubmit(event)}>
-          <input
-            name='title'
-            onChange={event => this.onInputChange('title', event)}
-            placeholder='Paste title here ...'
-            type='text'
-            value={this.state.snippet.title}
-            />
-          <input
-            name='language'
-            onChange={event => this.onInputChange('language', event)}
-            placeholder='Paste Snippet here ...'
-            type='text'
-            value={this.state.snippet.language}
-            />
-          <button type='submit'>Create Snippet!</button>
-          <CodeMirror
-            name="code"
-            ref="snippet"
-            options={options}
-            value={this.state.snippet.code}
-            onChange={(e) => this.editorOnChange(e)}
-             />
-        </form>
+      <div className='createForm'>
+        <Grid>
+            <form onSubmit={event => this.onFormSubmit(event)}>
+              <FormGroup>
+                <Row>
+                  <Col xs={6} md={7}>
+                    <ControlLabel>Title of your new snippet</ControlLabel>
+                    <FormControl
+                      name='title'
+                      onChange={event => this.onInputChange('title', event)}
+                      placeholder='Title here ...'
+                      type='text'
+                      value={this.state.snippet.title}
+                      />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={4} md={5} >
+                    <div className='formSelect'>                    <ControlLabel>Please Choose a Language</ControlLabel>
+                    <FormControl
+                      componentClass="select"
+                      name='language'
+                      onChange={event => this.onInputChange('language', event)}
+                      type='text'
+                      value={this.state.snippet.language}
+                      >
+                        <option
+                          value="Javascript">
+                          Javascript
+                        </option>
+                        <option value="Ruby">Ruby</option>
+                    </FormControl>
+                    </div>
+                  </Col>
+                  <Col xs={4} md={2} >
+                    <a href="">
+                      <Button
+                        className='formButton'
+                        bsStyle="primary"
+                        type='submit'
+                        >
+                        Create Snippet!
+                      </Button>
+                    </a>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={8} md={7}>
+                    <CodeMirror
+                      className='editor'
+                      name="code"
+                      ref="snippet"
+                      options={options}
+                      value={this.state.snippet.code}
+                      onChange={(e) => this.editorOnChange(e)}
+                       />
+                   </Col>
+                </Row>
+             </FormGroup>
+          </form>
+        </Grid>
       </div>
     )
   }

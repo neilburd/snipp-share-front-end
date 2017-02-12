@@ -1,7 +1,32 @@
 .App {
 }
-
+.editSnippetButton{
+  margin-top: 30px;
+}
 .snippetContainer{
   width: 500px;
   border: 1px solid red;
+}
+.javascript{
+  background-color:red;
+}
+.ruby{
+  background-color:blue;
+}
+
+.sideEditor .CodeMirror{
+  height:100px;
+}
+
+.editor{
+  margin-top: 30px;
+}
+.formSelect{
+  margin-top: 20px;
+}
+.formButton{
+  margin-top:45px;
+}
+.marginTop{
+  margin-top: 20px;
 }

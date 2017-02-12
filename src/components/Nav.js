@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 // import {Link} from 'react-router';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
 import NavItem from 'react-bootstrap/lib/NavItem';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
 import 'bootstrap/dist/css/bootstrap.css'
 
 class Header extends Component{

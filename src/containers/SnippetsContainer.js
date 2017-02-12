@@ -29,7 +29,7 @@ class SnippetsContainer extends Component{
     }.bind(this))
   }
   handleDeleteSnippet(snippet){
-    SnippetModel.deleteSnippet(snippet.id).then(function(res){
+    SnippetModel.delete(snippet.id).then(function(res){
       this.setState({
         snippets: res.data
       })
@@ -52,6 +52,7 @@ class SnippetsContainer extends Component{
       <Grid>
         <Row>
           <Col xs={12} md={8} >
+            <h2>New Snippet</h2>
             <Panel>
               <CreateSnippetForm
                 createSnippet={this.createSnippet.bind(this)}
@@ -63,6 +64,7 @@ class SnippetsContainer extends Component{
           <Col xs={6} md={4} >
             <Snippets
               snippets={this.state.snippets}
+              onDeleteSnippet={this.handleDeleteSnippet.bind(this)}
               />
           </Col>
         </Row>
