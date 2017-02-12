@@ -13,13 +13,17 @@ class SnippetsContainer extends Component{
   constructor(props){
     super(props)
     this.state = {
-      snippets: []
+      snippets: [],
+      editSnippet: false,
+      editSnpippetId: ''
+
     }
   }
   componentDidMount(){
     console.log("componentDidMount");
     this.fetchData()
   }
+
   fetchData(){
     SnippetModel.all().then(function(res){
       this.setState ({
@@ -28,33 +32,48 @@ class SnippetsContainer extends Component{
       })
     }.bind(this))
   }
+  /// Had to use splice to remove the correct snippet from the array
   handleDeleteSnippet(snippet){
     let allSnippets = this.state.snippets
     let index = allSnippets.indexOf(snippet)
-    // console.log(index);
     SnippetModel.deleteSnippet(snippet).then(function(res){
-      console.log(res.data);
-      console.log(this.state.snippets);
       allSnippets.splice(index, 1);
       this.setState({
         snippets: allSnippets
       })
-      console.log(this.state.snippets);
     }.bind(this))
   }
+  // Had to concat the res.data so that it was adding to the array
   createSnippet(snippet){
     var newSnippet = { title: snippet.title, code: snippet.code, language: snippet.language }
     SnippetModel.create(newSnippet).then(function(res){
-      // Had to concat the res.data so that it was adding to the array
       this.setState({
         snippets: this.state.snippets.concat([res.data])
       })
     }.bind(this))
   }
-////////////////////////
 
+  /// Must fix getting this to work on first click.
+  handleUpdateSnippet(snippet){
+      var snippetId = snippet.id
+      this.setState({
+        editSnpippetId: snippet.id
+      })
+    }
+    //   TodoModel.update(todoId, todoBody).then(function(res){
+    //     this.setState({
+    //       editingTodoId: null,
+    //       editing: null
+    //     })
+    //   }.bind(this))
+    // }
+    // updateEditState(todo){
+    //   this.setState({
+    //     editingTodoId: todo.id
+    //   })
 
   render(){
+
     return(
       <Grid>
         <Row>
@@ -68,10 +87,11 @@ class SnippetsContainer extends Component{
             </Panel>
           </Col>
 
-          <Col xs={6} md={4} >
+          <Col xs={12} md={4} >
             <Snippets
               snippets={this.state.snippets}
               onDeleteSnippet={this.handleDeleteSnippet.bind(this)}
+              onEditSnippet={this.handleUpdateSnippet.bind(this)}
               />
           </Col>
         </Row>

@@ -35,13 +35,6 @@ class Snippet extends Component {
               </Label>
             </div>
           </Col>
-          <Col sm={1} md={1}>
-            <div>
-              <Button bsStyle="info" bsSize="small" className='editSnippetButton'>
-                Edit Snippet!
-              </Button>
-            </div>
-          </Col>
         </Row>
         <Row>
           <Col sm={3} md={3} >
@@ -56,7 +49,28 @@ class Snippet extends Component {
                 value={this.props.snippet.code}
                 onChange={(e) => this.editorOnChange(e)}
                 />
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={1} md={2}>
+            <div>
               <Button
+                bsStyle="info"
+                bsSize="small"
+                className="marginTop"
+                onClick={() => this.props.onEditSnippet(this.props.snippet)}
+                >
+                Edit Snippet!
+              </Button>
+            </div>
+          </Col>
+          <Col sm={1} md={2}>
+            <div>
+              <Button
+                className="marginTop"
+                bsStyle="danger"
+                bsSize="small"
                 onClick={() => this.props.onDeleteSnippet(this.props.snippet)}>
                 Delete Snippet
               </Button>

@@ -91,12 +91,11 @@ class CreateSnippetForm extends Component{
               <FormGroup>
                 <Row>
                   <Col xs={11} md={7}>
-                    <ControlLabel>Title of your new snippet</ControlLabel>
+                    <ControlLabel>Edit the Title</ControlLabel>
                     <FormControl
                       name='title'
-                      onChange={event => this.onInputChange('title', event)}
-                      placeholder='Title here ...'
                       type='text'
+                      onChange={event => this.onInputChange('title', event)}
                       value={this.state.snippet.title}
                       />
                   </Col>
