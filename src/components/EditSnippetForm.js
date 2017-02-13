@@ -29,18 +29,7 @@ require('codemirror/mode/vue/vue');
 require('codemirror/addon/display/placeholder');
 require('codemirror/theme/monokai.css');
 
-class CreateSnippetForm extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      snippet:{
-        title:'',
-        code:'',
-        language:'javascript'
-      }
-    }
-    //this.editorOnChange = this.editorOnChange.bind(this)
-  }
+class EditSnippetForm extends Component{
 
   onInputChange(propertyName, event){
     let snippet = this.state.snippet
@@ -60,43 +49,42 @@ class CreateSnippetForm extends Component{
     // console.log(this.state.snippet);
   }
 
-  onFormSubmit(event){
-    event.preventDefault()
-    let snippet = this.state.snippet
-    this.props.createSnippet(snippet);
-    // console.log(this.state.snippet);
-    this.setState({
-      snippet: update(this.state.snippet, {
-        title:    { $set: '' },
-        code:     { $set: '' },
-        language: { $set: '' }
-      })
-    })
-    console.log(this.state.snippet.language);
-  }
+  // onFormSubmit(event){
+  //   event.preventDefault()
+  //   let snippet = this.state.snippet
+  //   this.props.createSnippet(snippet);
+  //   // console.log(this.state.snippet);
+  //   this.setState({
+  //     snippet: update(this.state.snippet, {
+  //       title:    { $set: '' },
+  //       code:     { $set: '' },
+  //       language: { $set: '' }
+  //     })
+  //   })
+  //   console.log(this.state.snippet.language);
+  // }
   render(){
     /// setting a varialbe to the snippets.language so I can change the language mode on the editor
-    let lang = this.state.snippet.language
+    let lang = this.props.snippet.language;
     var options = {
         lineNumbers: true,
         placeholder: "paste your snippet here...",
         theme: 'monokai',
-        mode: lang
+        //mode: lang
     }
     return(
-      /// This is where I will put the CodeMirror
       <div>
         <Grid>
             <form onSubmit={event => this.onFormSubmit(event)}>
               <FormGroup>
                 <Row>
                   <Col xs={11} md={7}>
-                    <ControlLabel>Edit the Title</ControlLabel>
+                    <ControlLabel>Edit the {this.props.snippet.title}</ControlLabel>
                     <FormControl
                       name='title'
                       type='text'
                       onChange={event => this.onInputChange('title', event)}
-                      value={this.state.snippet.title}
+                      value={(this.state && this.state.snippet.title) || ''}
                       />
                   </Col>
                 </Row>
@@ -157,4 +145,4 @@ class CreateSnippetForm extends Component{
   }
 }
 
-export default CreateSnippetForm
+export default EditSnippetForm

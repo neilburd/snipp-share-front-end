@@ -13,7 +13,13 @@ class Snippets extends Component {
             key={snippet.id}
             snippet={snippet}
             onDeleteSnippet={this.props.onDeleteSnippet}
-            onEditSnippet={this.props.onEditSnippet}
+
+            updateSnippet={this.props.updateSnippet}
+
+            editThisSnippet={this.props.editThisSnippet}
+
+            editSnippet={this.props.editSnippet}
+
           />
         </Panel>
           // onDeleteSnippet={this.props.onDeleteSnippet}

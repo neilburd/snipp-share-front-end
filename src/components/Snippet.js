@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
 import Label from 'react-bootstrap/lib/Label';
+//import update from 'immutability-helper';
 
 // require('../Snippet.css');
 require('codemirror/theme/monokai.css');
@@ -18,10 +19,30 @@ require('codemirror/addon/display/placeholder');
 
 class Snippet extends Component {
 
+  onChange(newValue, Id) {
+    console.log(this.props.snippet);
+    console.log(newValue);//the new value of the things
+    console.log(Id);
+    this.props.editThisSnippet(newValue);
+
+  }
+
+  editorOnChange(newValue){
+    // let snippet = this.state.snippet
+    this.props.editThisSnippet(newValue);
+
+  }
+
   render(){
+    let edit = this.props.editSnippet
+    let buttonText = "Edit Snippet"
     var options = {
         lineNumbers: true,
-        readOnly: true
+        readOnly: !edit
+    }
+    if (edit === true){
+      buttonText = 'Save Changes';
+
     }
     return(
       ////I Nedd to figure out what I need here. I will put in this code for now but will replace it in the future.
@@ -47,7 +68,7 @@ class Snippet extends Component {
                 height='200px'
                 options={options}
                 value={this.props.snippet.code}
-                onChange={(e) => this.editorOnChange(e)}
+                onChange={e => this.onChange(e, this.props.snippet.id)}
                 />
             </div>
           </Col>
@@ -59,9 +80,9 @@ class Snippet extends Component {
                 bsStyle="info"
                 bsSize="small"
                 className="marginTop"
-                onClick={() => this.props.onEditSnippet(this.props.snippet)}
+                onClick={() => this.props.updateSnippet(this.props.snippet)}
                 >
-                Edit Snippet!
+                {buttonText}
               </Button>
             </div>
           </Col>
