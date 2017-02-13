@@ -35,6 +35,9 @@ body{
 .marginTop{
   margin-top: 20px;
 }
+.marginBottom{
+  margin-bottom:30px;
+}
 .javascript{
   background-color:red;
 }

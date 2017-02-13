@@ -90,7 +90,7 @@ class CreateSnippetForm extends Component{
             <form onSubmit={event => this.onFormSubmit(event)}>
               <FormGroup>
                 <Row>
-                  <Col xs={11} md={7}>
+                  <Col xs={11} md={11}>
                     <ControlLabel>Title of your new snippet</ControlLabel>
                     <FormControl
                       name='title'
@@ -102,7 +102,7 @@ class CreateSnippetForm extends Component{
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={8} md={5} >
+                  <Col xs={8} md={9} >
                     <div className='formSelect'>
                     <ControlLabel>Please Choose a Language </ControlLabel>
                     <FormControl
@@ -139,7 +139,7 @@ class CreateSnippetForm extends Component{
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={10} md={7}>
+                  <Col xs={10} md={11}>
                     <CodeMirror
                       className='editor'
                       name="code"

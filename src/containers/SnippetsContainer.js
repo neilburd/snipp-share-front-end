@@ -112,7 +112,7 @@ class SnippetsContainer extends Component{
     return(
       <Grid>
         <Row>
-          <Col xs={12} md={8} >
+          <Col xs={12} md={12} >
             <h2 className="title monospace">{title}</h2>
             <Panel>
               <CreateSnippetForm
@@ -122,7 +122,7 @@ class SnippetsContainer extends Component{
             </Panel>
           </Col>
 
-          <Col xs={12} md={4} >
+          <Col xs={12} md={12} >
             {/* updateSnippet makes changes to the state of editSnippet to change editing mode
                 editThisSnippet changes the state of the snippet I'm editing */}
             <Snippets

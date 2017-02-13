@@ -45,7 +45,7 @@ class Snippet extends Component {
   render(){
     let lang = this.props.snippet.language
     let edit = this.props.editSnippet
-    let buttonText = "Edit Snippet"
+    let buttonText = "Edit"
     var options = {
         lineNumbers: true,
         readOnly: !edit,
@@ -53,14 +53,14 @@ class Snippet extends Component {
         mode: lang
     }
     if (edit === true){
-      buttonText = 'Save Changes';
+      buttonText = 'Save';
 
     }
     return(
       ////I Nedd to figure out what I need here. I will put in this code for now but will replace it in the future.
       <Grid>
         <Row>
-          <Col sm={1} md={2}>
+          <Col sm={1} md={4}>
             <div>
               <h4>{this.props.snippet.title}</h4>
               <Label className={lang}>
@@ -88,7 +88,7 @@ class Snippet extends Component {
         <Row>
           <Col sm={1} md={1}>
             <ClipboardButton className="btn btn-success btn-sm marginTop" data-clipboard-text={this.props.snippet.code}>
-                copy snippet
+                Copy
             </ClipboardButton>
           </Col>
 
@@ -111,7 +111,7 @@ class Snippet extends Component {
                 bsStyle="danger"
                 bsSize="small"
                 onClick={() => this.props.onDeleteSnippet(this.props.snippet)}>
-                Delete Snippet
+                Delete
               </Button>
             </div>
           </Col>
