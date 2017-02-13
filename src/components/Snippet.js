@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CodeMirror from 'react-codemirror';
+//import update from 'immutability-helper';
 
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
@@ -9,7 +10,6 @@ import Label from 'react-bootstrap/lib/Label';
 //import update from 'immutability-helper';
 import ClipboardButton from 'react-clipboard.js';
 
-// require('../Snippet.css');
 require('codemirror/theme/monokai.css');
 
 require('codemirror/mode/javascript/javascript');
@@ -27,24 +27,31 @@ require('codemirror/mode/vue/vue');
 require('codemirror/theme/monokai.css');
 
 class Snippet extends Component {
-
-  onChange(newValue, Id) {
+  constructor(){
+    super()
+    this.state = {
+      editSnippet: false
+    }
+    this.editMode = this.editMode.bind(this);
+  }
+  onChange(newValue, snippet) {
     console.log(this.props.snippet);
     console.log(newValue);//the new value of the things
-    console.log(Id);
-    this.props.editThisSnippet(newValue);
-
+    console.log(snippet);
+    this.props.editThisSnippet(newValue, snippet);
   }
 
-  editorOnChange(newValue){
-    // let snippet = this.state.snippet
-    this.props.editThisSnippet(newValue);
-
+  editMode(){
+    console.log(this.state.editSnippet);
+    let editSnippet = this.state.editSnippet
+    this.setState({
+      editSnippet: !editSnippet
+    })
+    this.props.updateSnippet(this.props.snippet, this.state.editSnippet)
   }
-
   render(){
     let lang = this.props.snippet.language
-    let edit = this.props.editSnippet
+    let edit = this.state.editSnippet
     let buttonText = "Edit"
     var options = {
         lineNumbers: true,
@@ -54,7 +61,6 @@ class Snippet extends Component {
     }
     if (edit === true){
       buttonText = 'Save';
-
     }
     return(
       ////I Nedd to figure out what I need here. I will put in this code for now but will replace it in the future.
@@ -80,7 +86,7 @@ class Snippet extends Component {
                 height='200px'
                 options={options}
                 value={this.props.snippet.code}
-                onChange={e => this.onChange(e, this.props.snippet.id)}
+                onChange={e => this.onChange(e, this.props.snippet)}
                 />
             </div>
           </Col>
@@ -98,7 +104,7 @@ class Snippet extends Component {
                 bsStyle="info"
                 bsSize="small"
                 className="marginTop"
-                onClick={() => this.props.updateSnippet(this.props.snippet)}
+                onClick={this.editMode}
                 >
                 {buttonText}
               </Button>

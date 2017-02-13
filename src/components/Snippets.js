@@ -12,19 +12,26 @@ class Snippets extends Component {
   constructor(){
     super()
     this.state = {
-      sortLang: ""
+      sortLang: "all"
     }
   }
+
   sortSnippets(event){
-    let sortLang = this.state.sortLang
+    // let sorted = this.props.snippets.filter(filterSnippets(event.target.value));
+    console.log(this.state.sortLang);
+    console.log(event.target.value);
+
+    /* Can't figure out why this is getting set the the previous value */
     this.setState({
       sortLang: event.target.value
     })
-    console.log(sortLang);
+
+    console.log(this.state.sortLang);
   }
+
   render(){
     let title = "{all-snippets}";
-    // let sortedSnippets = this.props.snippets.
+  //  let sortedSnippets = this.props.snippets.filter(filterSnippets())
     var allSnippets = this.props.snippets.map(function(snippet, index){
 
       return(
@@ -53,10 +60,10 @@ class Snippets extends Component {
             <Col sm={12} md={6} className="marginBottom">
               <ControlLabel className="title">Sort by a Language </ControlLabel>
                 <FormControl
-                  componentClass="select"
+                  componentClass='select'
                   name='language'
-                  value={this.state.sortLang}
                   onChange={e => this.sortSnippets(e)}
+                  value={this.state.sortLang}
                   >
                     <option value="all">All Snippets</option>
                     <option value="javascript">javascript</option>

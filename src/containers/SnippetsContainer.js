@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Snippets from '../components/Snippets'
 import CreateSnippetForm from '../components/CreateSnippetForm';
+import update from 'immutability-helper';
+
 // import EditSnippetForm from '../components/EditSnippetForm';
 import SnippetModel from '../models/Snippet';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,10 +15,7 @@ class SnippetsContainer extends Component{
   constructor(props){
     super(props)
     this.state = {
-      snippets: [],
-      editSnippet: false,
-      editSnippetId: null
-
+      snippets: []
     }
   }
   componentDidMount(){
@@ -34,6 +33,7 @@ class SnippetsContainer extends Component{
   }
   /// Had to use splice to remove the correct snippet from the array
   deleteSnippet(snippet){
+    console.log(snippet);
     let allSnippets = this.state.snippets
     let index = allSnippets.indexOf(snippet)
     SnippetModel.deleteSnippet(snippet).then(function(res){
@@ -53,32 +53,43 @@ class SnippetsContainer extends Component{
     }.bind(this))
   }
 
-  editThisSnippet(newValue, snippetId){
+  editThisSnippet(newValue, snippet){
+    //let allSnippets = this.state.snippets
+    let index = this.state.snippets.indexOf(snippet);
+      console.log(snippet);
+      console.log(index);
+      console.log(newValue);
 
-    let allSnippets = this.state.snippets
-      console.log(allSnippets);
-    let index = allSnippets.indexOf(snippetId)
-      console.log(index); // -1
     this.setState({
-
+      snippets: update(this.state.snippets[index], {
+        code: { $set: newValue }
+      })
     })
+    console.log(this.state.snippets[index].code)
   }
+
+  
   /// Must fix getting this to work on first click.
-  updateSnippet(snippet){
-    ///this will change the editSnippet from true to false
-    let editSnippet = this.state.editSnippet
-    this.setState({
-      editSnippet: !editSnippet
-    })
-/// this is where I will put the Update function?
-    if (editSnippet === true){
+  updateSnippet(snippet, editValue){
+    console.log(snippet);
+    console.log(editValue);
+    /// this is where I will put the Update function?
+    if (this.state.editSnippet === true){
+      console.log('update');
       SnippetModel.update(snippet).then(function(res){
         console.log(res.data);
         this.setState({
-          snippets: this.state.snippets.concat([res.data])
+
         })
       }.bind(this))
     }
+
+    ///this will change the editSnippet from true to false
+    let editSnippet = this.state.editSnippet
+
+    this.setState({
+      editSnippet: !editSnippet
+    })
   }
 
   render(){
