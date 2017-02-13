@@ -7,11 +7,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 class Header extends Component{
   render(){
+    let title ="{snipp-share}"
     return(
       <Navbar  collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">Snipp-Share</a>
+        <a href="#" className="monospace"> {title} </a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>

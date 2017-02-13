@@ -6,6 +6,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 class Snippets extends Component {
 
   render(){
+    let title = "all-snippets"
     var allSnippets = this.props.snippets.map(function(snippet, index){
       return(
         <Panel key={snippet.id} >
@@ -31,7 +32,7 @@ class Snippets extends Component {
     return(
 
         <div>
-          <h2>All Snippets</h2>
+          <h2 className="title monospace">{title}</h2>
           {allSnippets}
         </div>
 

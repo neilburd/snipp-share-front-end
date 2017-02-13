@@ -82,6 +82,7 @@ class SnippetsContainer extends Component{
   }
 
   render(){
+    let title = "new-snippet"
     // if (this.state.editSnippet === true){
     //   return(
     //     <Grid>
@@ -112,7 +113,7 @@ class SnippetsContainer extends Component{
       <Grid>
         <Row>
           <Col xs={12} md={8} >
-            <h2>New Snippet</h2>
+            <h2 className="title monospace">{title}</h2>
             <Panel>
               <CreateSnippetForm
                 createSnippet={this.createSnippet.bind(this)}

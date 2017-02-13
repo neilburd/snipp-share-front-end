@@ -1,6 +1,15 @@
+body{
+  background-color: rgba(39, 40, 34, 1);
+}
+.title{
+  color: #fff;
+}
 .createForm {
   position: fixed;
-  
+
+}
+.monospace{
+  font-family: monospace;
 }
 .editSnippetButton{
   margin-top: 30px;
@@ -8,12 +17,6 @@
 .snippetContainer{
   width: 500px;
   border: 1px solid red;
-}
-.javascript{
-  background-color:red;
-}
-.ruby{
-  background-color:blue;
 }
 
 .sideEditor .CodeMirror{
@@ -31,4 +34,37 @@
 }
 .marginTop{
   margin-top: 20px;
+}
+.javascript{
+  background-color:red;
+}
+.ruby{
+  background-color:yellow;
+}
+.markdown{
+  background-color:green;
+}
+.xml{
+  background-color:blue;
+}
+.python{
+  background-color:'light blue';
+}
+.css{
+  background-color:'lemon chiffon';
+}
+.coffeescript{
+  background-color:brown;
+}
+.jsx{
+  background-color:purple;
+}
+.php{
+  background-color:maroon;
+}
+.sass{
+  background-color:pink;
+}
+.vue{
+  background-color:teal;
 }

@@ -7,15 +7,24 @@ import Col from 'react-bootstrap/lib/Col';
 import Button from 'react-bootstrap/lib/Button';
 import Label from 'react-bootstrap/lib/Label';
 //import update from 'immutability-helper';
+import ClipboardButton from 'react-clipboard.js';
 
 // require('../Snippet.css');
 require('codemirror/theme/monokai.css');
 
-require('codemirror/lib/codemirror.css');
 require('codemirror/mode/javascript/javascript');
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/markdown/markdown');
-require('codemirror/addon/display/placeholder');
+require('codemirror/mode/ruby/ruby');
+require('codemirror/mode/python/python');
+require('codemirror/mode/css/css');
+require('codemirror/mode/coffeescript/coffeescript');
+require('codemirror/mode/jsx/jsx');
+require('codemirror/mode/php/php');
+require('codemirror/mode/sass/sass');
+require('codemirror/mode/vue/vue');
+
+require('codemirror/theme/monokai.css');
 
 class Snippet extends Component {
 
@@ -34,11 +43,14 @@ class Snippet extends Component {
   }
 
   render(){
+    let lang = this.props.snippet.language
     let edit = this.props.editSnippet
     let buttonText = "Edit Snippet"
     var options = {
         lineNumbers: true,
-        readOnly: !edit
+        readOnly: !edit,
+        theme: 'monokai',
+        mode: lang
     }
     if (edit === true){
       buttonText = 'Save Changes';
@@ -51,7 +63,7 @@ class Snippet extends Component {
           <Col sm={1} md={2}>
             <div>
               <h4>{this.props.snippet.title}</h4>
-              <Label>
+              <Label className={lang}>
                 {this.props.snippet.language}
               </Label>
             </div>
@@ -74,7 +86,13 @@ class Snippet extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={1} md={2}>
+          <Col sm={1} md={1}>
+            <ClipboardButton className="btn btn-success btn-sm marginTop" data-clipboard-text={this.props.snippet.code}>
+                copy snippet
+            </ClipboardButton>
+          </Col>
+
+          <Col sm={1} md={1}>
             <div>
               <Button
                 bsStyle="info"
@@ -86,7 +104,7 @@ class Snippet extends Component {
               </Button>
             </div>
           </Col>
-          <Col sm={1} md={2}>
+          <Col sm={1} md={1}>
             <div>
               <Button
                 className="marginTop"

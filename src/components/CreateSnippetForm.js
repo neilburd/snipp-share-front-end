@@ -139,7 +139,7 @@ class CreateSnippetForm extends Component{
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={12} md={7}>
+                  <Col xs={10} md={7}>
                     <CodeMirror
                       className='editor'
                       name="code"
