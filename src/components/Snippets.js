@@ -33,7 +33,6 @@ class Snippets extends Component {
     let title = "{all-snippets}";
   //  let sortedSnippets = this.props.snippets.filter(filterSnippets())
     var allSnippets = this.props.snippets.map(function(snippet, index){
-
       return(
           <Col sm={12} md={4}  key={snippet.id}>
             <Panel key={snippet.id} >

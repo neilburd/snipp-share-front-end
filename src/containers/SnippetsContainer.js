@@ -54,25 +54,27 @@ class SnippetsContainer extends Component{
   }
 
   editThisSnippet(newValue, snippet){
-    //let allSnippets = this.state.snippets
+    let allSnippets = this.state.snippets
     let index = this.state.snippets.indexOf(snippet);
-      console.log(snippet);
-      console.log(index);
-      console.log(newValue);
+      console.log("SNIPPET >>>>>>>>", snippet);
+      console.log("INDEX >>>>>>>>", index);
+      console.log("New VALUE >>>>>>>>", newValue);
+      console.log("ALLSNIPPETS INDEX Code >>>>",allSnippets[index].code);
 
+      allSnippets[index].code = newValue;
+
+      console.log("ALLSNIPPETS INDEX Code AFTER >>>>",allSnippets[index]);
     this.setState({
-      snippets: update(this.state.snippets[index], {
-        code: { $set: newValue }
-      })
+      snippets: allSnippets
     })
     console.log(this.state.snippets[index].code)
   }
 
-  
+
   /// Must fix getting this to work on first click.
   updateSnippet(snippet, editValue){
-    console.log(snippet);
-    console.log(editValue);
+    console.log("new VALUE >>>>>>>>", snippet);
+    console.log("EDIT VALUE IN UPDATE",editValue); /// TRUE OR FALSE
     /// this is where I will put the Update function?
     if (this.state.editSnippet === true){
       console.log('update');
@@ -86,7 +88,6 @@ class SnippetsContainer extends Component{
 
     ///this will change the editSnippet from true to false
     let editSnippet = this.state.editSnippet
-
     this.setState({
       editSnippet: !editSnippet
     })
@@ -128,7 +129,7 @@ class SnippetsContainer extends Component{
             <Panel>
               <CreateSnippetForm
                 createSnippet={this.createSnippet.bind(this)}
-                snippet={this.state.snippet}
+                snippets={this.state.snippets}
                 />
             </Panel>
           </Col>

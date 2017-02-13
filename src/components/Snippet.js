@@ -35,10 +35,14 @@ class Snippet extends Component {
     this.editMode = this.editMode.bind(this);
   }
   onChange(newValue, snippet) {
-    console.log(this.props.snippet);
-    console.log(newValue);//the new value of the things
-    console.log(snippet);
-    this.props.editThisSnippet(newValue, snippet);
+    //console.log("onCHANGE this.props.snippet >>>>>>",this.props.snippet);
+
+    console.log("onCHANGE NEW VALUE >>>>>>",newValue);//the new value of the things
+    console.log("onCHANGE SNIPPET >>>>>>>>",snippet); ///same as this.props.snippet /// passes the correct snippet object
+
+    // calling  editThisSnippet in the Snippets Container
+    this.props.editThisSnippet(newValue, snippet); ///
+
   }
 
   editMode(){
@@ -47,7 +51,8 @@ class Snippet extends Component {
     this.setState({
       editSnippet: !editSnippet
     })
-    this.props.updateSnippet(this.props.snippet, this.state.editSnippet)
+    console.log("hopefully new Value >>>>>>>>", this.props.snippet);
+    this.props.updateSnippet(this.props.snippet, editSnippet)
   }
   render(){
     let lang = this.props.snippet.language
