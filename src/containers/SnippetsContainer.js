@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Snippets from '../components/Snippets'
 import CreateSnippetForm from '../components/CreateSnippetForm';
-import update from 'immutability-helper';
 
 // import EditSnippetForm from '../components/EditSnippetForm';
 import SnippetModel from '../models/Snippet';
@@ -56,30 +55,24 @@ class SnippetsContainer extends Component{
   editThisSnippet(newValue, snippet){
     let allSnippets = this.state.snippets
     let index = this.state.snippets.indexOf(snippet);
-      console.log("SNIPPET >>>>>>>>", snippet);
-      console.log("INDEX >>>>>>>>", index);
-      console.log("New VALUE >>>>>>>>", newValue);
-      console.log("ALLSNIPPETS INDEX Code >>>>",allSnippets[index].code);
-
-      allSnippets[index].code = newValue;
-
-      console.log("ALLSNIPPETS INDEX Code AFTER >>>>",allSnippets[index]);
+    allSnippets[index].code = newValue;
+    // console.log("ALLSNIPPETS INDEX Code AFTER >>>>",allSnippets[index]);
     this.setState({
       snippets: allSnippets
     })
-    console.log(this.state.snippets[index].code)
+    // console.log(this.state.snippets[index].code)
   }
 
 
   /// Must fix getting this to work on first click.
   updateSnippet(snippet, editValue){
-    console.log("new VALUE >>>>>>>>", snippet);
-    console.log("EDIT VALUE IN UPDATE",editValue); /// TRUE OR FALSE
+
+
     /// this is where I will put the Update function?
     if (this.state.editSnippet === true){
       console.log('update');
       SnippetModel.update(snippet).then(function(res){
-        console.log(res.data);
+
         this.setState({
 
         })

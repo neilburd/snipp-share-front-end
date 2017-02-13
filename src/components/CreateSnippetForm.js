@@ -52,6 +52,12 @@ class CreateSnippetForm extends Component{
 
   editorOnChange(newValue){
     // let snippet = this.state.snippet
+    // let snippet = this.state.snippet
+    // snippet.code = newValue;
+    // this.setState({
+    //   snippet: snippet
+    // })
+
     this.setState({
       snippet: update(this.state.snippet, {
         code: { $set: newValue }

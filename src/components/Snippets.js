@@ -29,10 +29,21 @@ class Snippets extends Component {
     console.log(this.state.sortLang);
   }
 
+  snippets(sortLang){
+    let allSnips = this.props.snippets
+    allSnips.map(function(snip){
+
+
+    })
+  }
+
   render(){
     let title = "{all-snippets}";
   //  let sortedSnippets = this.props.snippets.filter(filterSnippets())
+    //var allSnippets = snippets(this.state.sortLang)
+    //this.props.snippets.map(function(snippet, index){
     var allSnippets = this.props.snippets.map(function(snippet, index){
+    //snippets(this.state.sortLang)
       return(
           <Col sm={12} md={4}  key={snippet.id}>
             <Panel key={snippet.id} >
