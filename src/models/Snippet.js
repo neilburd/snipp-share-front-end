@@ -1,6 +1,7 @@
 import axios from 'axios'
-//let URL = 'https://intense-plains-13482.herokuapp.com'
-let URL = 'https://localhost:3000'
+
+//let URL = "http://localhost:3000"
+let URL = "https://intense-plains-13482.herokuapp.com"
 
 class SnippetModel {
 

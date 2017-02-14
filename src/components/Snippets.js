@@ -29,13 +29,13 @@ class Snippets extends Component {
     console.log(this.state.sortLang);
   }
 
-  snippets(sortLang){
-    let allSnips = this.props.snippets
-    allSnips.map(function(snip){
-
-
-    })
-  }
+  // snippets(sortLang){
+  //   let allSnips = this.props.snippets
+  //   allSnips.map(function(snip){
+  //
+  //
+  //   })
+  // }
 
   render(){
     let title = "{all-snippets}";
