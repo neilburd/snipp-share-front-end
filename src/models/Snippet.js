@@ -1,20 +1,23 @@
 import axios from 'axios'
 
+//let URL = "http://localhost:3000"
+let URL = "https://intense-plains-13482.herokuapp.com"
+
 class SnippetModel {
   static all(){
-    let request = axios.get("http://localhost:3000/snippets")
+    let request = axios.get(`${URL}/snippets`)
     return request
   }
   static create(snippet) {
-    let request = axios.post("http://localhost:3000/snippets", snippet)
+    let request = axios.post(`${URL}/snippets`, snippet)
     return request
   }
   static deleteSnippet(snippet){
-    let request = axios.delete(`http://localhost:3000/snippets/${snippet.id}`)
+    let request = axios.delete(`${URL}/snippets/${snippet.id}`)
     return request
   }
     static update(snippet){
-      let request = axios.put(`http://localhost:3000/snippets/${snippet.id}`, {code: snippet.code})
+      let request = axios.put(`${URL}/snippets/${snippet.id}`, {code: snippet.code})
       return request
     }
   }

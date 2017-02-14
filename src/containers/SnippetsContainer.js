@@ -95,32 +95,6 @@ class SnippetsContainer extends Component{
 
   render(){
     let title = "new-snippet"
-    // if (this.state.editSnippet === true){
-    //   return(
-    //     <Grid>
-    //       <Row>
-    //         <Col xs={12} md={8} >
-    //           <h2>Edit Snippet</h2>
-    //           <Panel>
-    //             <EditSnippetForm
-    //               editSnippet={this.editSnippet.bind(this)}
-    //               snippetId={this.state.editSnippetId}
-    //               snippet={this.state.snippets.editSnippetId}
-    //               />
-    //           </Panel>
-    //         </Col>
-    //
-    //         <Col xs={12} md={4} >
-    //           <Snippets
-    //             snippets={this.state.snippets}
-    //             onDeleteSnippet={this.handleDeleteSnippet.bind(this)}
-    //             onEditSnippet={this.handleUpdateSnippet.bind(this)}
-    //             />
-    //         </Col>
-    //       </Row>
-    //     </Grid>
-    //   )
-    // }
     return(
       <Grid>
         <Row>
