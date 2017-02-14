@@ -13,9 +13,7 @@
     https://snipp-share-api.herokuapp.com/snippets
 
   ## Technologies Used on the Front End
-    React: Main Framework
-    React-Bootstrap: Library of Bootstrap components
-    React-Codemirror: react components built around the open source codemirror
-    axios: a react library that aids in creating the CRUD funcionality
-
-  
+    * React: Main Framework
+    * React-Bootstrap: Library of Bootstrap components
+    * React-Codemirror: react components built around the open source codemirror
+    * axios: a react library that aids in creating the CRUD funcionality
