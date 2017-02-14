@@ -62,17 +62,12 @@ class SnippetsContainer extends Component{
     })
     // console.log(this.state.snippets[index].code)
   }
-
-
   /// Must fix getting this to work on first click.
   updateSnippet(snippet, editValue){
-
-
     /// this is where I will put the Update function?
     if (this.state.editSnippet === true){
       console.log('update');
       SnippetModel.update(snippet).then(function(res){
-
         this.setState({
 
         })
