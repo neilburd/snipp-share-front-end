@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Snippets from '../components/Snippets'
 import CreateSnippetForm from '../components/CreateSnippetForm';
-import update from 'immutability-helper';
+//import update from 'immutability-helper';
 
 // import EditSnippetForm from '../components/EditSnippetForm';
 import SnippetModel from '../models/Snippet';
