@@ -39,10 +39,12 @@ body{
   margin-bottom:30px;
 }
 .javascript{
-  background-color:red;
+  background-color:yellow;
+  color:rgba(39, 40, 34, 1);
 }
 .ruby{
-  background-color:yellow;
+  background-color:red;
+  color:rgba(39, 40, 34, 1);
 }
 .markdown{
   background-color:green;

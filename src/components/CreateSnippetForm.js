@@ -133,15 +133,13 @@ class CreateSnippetForm extends Component{
                     </div>
                   </Col>
                   <Col xs={2} md={2} >
-                    <a href="">
-                      <Button
-                        className='formButton'
-                        bsStyle="primary"
-                        type='submit'
-                        >
-                        Create Snippet!
-                      </Button>
-                    </a>
+                    <Button
+                      className='formButton'
+                      bsStyle="primary"
+                      type='submit'
+                      >
+                      Create Snippet!
+                    </Button>
                   </Col>
                 </Row>
                 <Row>

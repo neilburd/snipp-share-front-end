@@ -37,8 +37,8 @@ class Snippet extends Component {
   onChange(newValue, snippet) {
     //console.log("onCHANGE this.props.snippet >>>>>>",this.props.snippet);
 
-    console.log("onCHANGE NEW VALUE >>>>>>",newValue);//the new value of the things
-    console.log("onCHANGE SNIPPET >>>>>>>>",snippet); ///same as this.props.snippet /// passes the correct snippet object
+    // console.log("onCHANGE NEW VALUE >>>>>>",newValue);//the new value of the things
+    // console.log("onCHANGE SNIPPET >>>>>>>>",snippet); ///same as this.props.snippet /// passes the correct snippet object
 
     // calling  editThisSnippet in the Snippets Container
     this.props.editThisSnippet(newValue, snippet); ///
@@ -46,12 +46,10 @@ class Snippet extends Component {
   }
 
   editMode(){
-    console.log(this.state.editSnippet);
     let editSnippet = this.state.editSnippet
     this.setState({
       editSnippet: !editSnippet
     })
-    console.log("hopefully new Value >>>>>>>>", this.props.snippet);
     this.props.updateSnippet(this.props.snippet, editSnippet)
   }
   render(){
