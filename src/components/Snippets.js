@@ -17,18 +17,18 @@ class Snippets extends Component {
     }
   }
 
-  changeLang(x){
-    console.log("This is in a callback",x);
-  }
-  sortSnippets(event){
-    event.preventDefault()
-    let lang = event.target.value;
-    this.setState({
-      sortLang: lang
-    },() => this.getLang(this.state.changeLang))
-    //console.log(this.state.sortLang);
-
-  }
+  // changeLang(x){
+  //   console.log("This is in a callback",x);
+  // }
+  // sortSnippets(event){
+  //   event.preventDefault()
+  //   let lang = event.target.value;
+  //   this.setState({
+  //     sortLang: lang
+  //   },() => this.getLang(this.state.changeLang))
+  //   //console.log(this.state.sortLang);
+  //
+  // }
 
   render(){
     // let sortSnippets = this.props.snippets.forEach(sortedSnippets(this.state.sortLang));
@@ -39,8 +39,7 @@ class Snippets extends Component {
     //     console.log(snippet);
     //   }
     // })
-    var allSnippets = this.props.snippets
-    allSnippets.map(function(snippet, index){
+    var allSnippets = this.props.snippets.map(function(snippet, index){
       return(
           <Col sm={12} md={4}  key={snippet.id}>
             <Panel key={snippet.id} >
@@ -87,15 +86,12 @@ class Snippets extends Component {
                      <option value="sass">sass</option>
                      <option value="vue">vue</option>
                  </FormControl>
-                 {/*
-                //  <Button type='submit' bsStyle="primary">
-                //    Sort Snippets
-                //  </Button> */}
+
                  </FormGroup>
                </form>
               </Col>
             </Row>
-          {allSnippets}
+          { allSnippets }
         </div>
     )
   }

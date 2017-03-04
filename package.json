@@ -1,7 +1,7 @@
 {
   "name": "snipp-share-2",
   "version": "0.1.0",
-  "homepage": "https://neilburd.github.io/snipp-share-front-end",
+  "homepage": "https://snipp-share-front-end.surge.sh",
   "private": true,
   "devDependencies": {
     "gh-pages": "^0.12.0",
@@ -26,6 +26,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "deploy": "npm build && surge -p build --domain snipp-share-front-end.surge.sh"
   }
 }

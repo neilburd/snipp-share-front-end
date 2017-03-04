@@ -12,7 +12,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 
 class SnippetsContainer extends Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       snippets: []
     }
@@ -20,11 +20,12 @@ class SnippetsContainer extends Component{
   componentDidMount(){
     console.log("componentDidMount");
     this.fetchData()
+
   }
 
   fetchData(){
     SnippetModel.all().then(function(res){
-      this.setState ({
+      this.setState({
         snippets: res.data,
         snippet:''
       })
