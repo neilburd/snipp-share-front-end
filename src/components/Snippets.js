@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/lib/Row';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import Button from 'react-bootstrap/lib/Button';
+//import Button from 'react-bootstrap/lib/Button';
 
 class Snippets extends Component {
   constructor(){
@@ -17,18 +17,16 @@ class Snippets extends Component {
     }
   }
 
+  changeLang(x){
+    console.log("This is in a callback",x);
+  }
   sortSnippets(event){
     event.preventDefault()
-    // console.log("EVENT.TARGET.LISTEN", event.target.value);
-    // console.log(this.state.sortLang);
-///????????ERROR sortLang of undefined ??????????????
-
-    //let sortLang = this.state.sortLang;
     let lang = event.target.value;
     this.setState({
       sortLang: lang
-    })
-    console.log(this.state.sortLang);
+    },() => this.getLang(this.state.changeLang))
+    //console.log(this.state.sortLang);
 
   }
 
@@ -41,7 +39,8 @@ class Snippets extends Component {
     //     console.log(snippet);
     //   }
     // })
-    var allSnippets = this.props.snippets.map(function(snippet, index){
+    var allSnippets = this.props.snippets
+    allSnippets.map(function(snippet, index){
       return(
           <Col sm={12} md={4}  key={snippet.id}>
             <Panel key={snippet.id} >
@@ -88,10 +87,10 @@ class Snippets extends Component {
                      <option value="sass">sass</option>
                      <option value="vue">vue</option>
                  </FormControl>
-
-                 <Button type='submit' bsStyle="primary">
-                   Sort Snippets
-                 </Button>
+                 {/*
+                //  <Button type='submit' bsStyle="primary">
+                //    Sort Snippets
+                //  </Button> */}
                  </FormGroup>
                </form>
               </Col>

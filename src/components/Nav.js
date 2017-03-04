@@ -12,7 +12,7 @@ class Header extends Component{
       <Navbar  collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#" className="monospace"> {title} </a>
+        <a href="/snippets" className="monospace"> {title} </a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
