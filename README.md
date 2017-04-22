@@ -1,4 +1,4 @@
-## Snipp Share
+## Snipp Share What?
   Snipp share is a snippet storing and sharing app. It was built using React as the frontend framework and rails to handle the backend. This project uses react-bootstrap to help with styling, and the code editor is react-codemirror.
 
   ##Getting Started
