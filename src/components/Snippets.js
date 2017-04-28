@@ -17,19 +17,6 @@ class Snippets extends Component {
     }
   }
 
-  // changeLang(x){
-  //   console.log("This is in a callback",x);
-  // }
-  // sortSnippets(event){
-  //   event.preventDefault()
-  //   let lang = event.target.value;
-  //   this.setState({
-  //     sortLang: lang
-  //   },() => this.getLang(this.state.changeLang))
-  //   //console.log(this.state.sortLang);
-  //
-  // }
-
   render(){
     // let sortSnippets = this.props.snippets.forEach(sortedSnippets(this.state.sortLang));
     let title = "{all-snippets}";

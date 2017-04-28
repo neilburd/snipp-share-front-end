@@ -27,5 +27,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
-  }
+  },
+  "description": "a snippet app",
+  "main": "index.js",
+  "repository": "https://github.com/neilburd/snipp-share-front-end.git",
+  "author": "neilburd <neilburd@gmail.com>",
+  "license": "MIT"
 }
