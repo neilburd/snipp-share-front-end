@@ -48,23 +48,9 @@ class EditSnippetForm extends Component{
     })
     // console.log(this.state.snippet);
   }
-
-  // onFormSubmit(event){
-  //   event.preventDefault()
-  //   let snippet = this.state.snippet
-  //   this.props.createSnippet(snippet);
-  //   // console.log(this.state.snippet);
-  //   this.setState({
-  //     snippet: update(this.state.snippet, {
-  //       title:    { $set: '' },
-  //       code:     { $set: '' },
-  //       language: { $set: '' }
-  //     })
-  //   })
-  //   console.log(this.state.snippet.language);
-  // }
   render(){
     /// setting a varialbe to the snippets.language so I can change the language mode on the editor
+    // possibly used for a sort function
     let lang = this.props.snippet.language;
     var options = {
         lineNumbers: true,
