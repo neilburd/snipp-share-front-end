@@ -1,14 +1,9 @@
 import React, {Component} from 'react'
 import Snippet from './Snippet'
-import SnippetSort from './SnippetSort'
+import SnippetList from './SnippetList'
 
 import Panel from 'react-bootstrap/lib/Panel';
 import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
-
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import FormControl from 'react-bootstrap/lib/FormControl';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 
 class Snippets extends Component {
   constructor(){
@@ -38,8 +33,7 @@ class Snippets extends Component {
     return(
 
         <div>
-          <SnippetSort
-            />
+          
           { allSnippets }
         </div>
     )

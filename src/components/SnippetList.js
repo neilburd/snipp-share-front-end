@@ -6,11 +6,11 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 
-class SnippetSort extends Component {
+class SnippetList extends Component {
   constructor(){
     super()
     this.state = {
-      sortLang: 'allSnippets'
+      sortLang: 'all'
     };
   }
 
@@ -25,7 +25,6 @@ class SnippetSort extends Component {
               <FormControl
                  componentClass='select'
                  name='language'
-
                  value={this.state.sortLang}
                  >
                    <option value="all">All Snippets</option>
@@ -50,4 +49,4 @@ class SnippetSort extends Component {
     )
   }
 }
-export default SnippetSort
+export default SnippetList

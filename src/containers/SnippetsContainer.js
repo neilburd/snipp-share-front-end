@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Snippets from '../components/Snippets'
 import CreateSnippetForm from '../components/CreateSnippetForm';
+import SnippetList from '../components/SnippetList'
 
 // import EditSnippetForm from '../components/EditSnippetForm';
 import SnippetModel from '../models/Snippet';
@@ -96,7 +97,7 @@ class SnippetsContainer extends Component{
                 />
             </Panel>
           </Col>
-
+<SnippetList />
           <Col xs={12} md={12} >
             {/* updateSnippet makes changes to the state of editSnippet to change editing mode
                 editThisSnippet changes the state of the snippet I'm editing */}
