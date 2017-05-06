@@ -10,7 +10,7 @@ class SnippetList extends Component {
   constructor(){
     super()
     this.state = {
-      sortLang: 'allSnippets'
+      sortLang: 'javascript'
     };
   }
 
@@ -25,6 +25,7 @@ class SnippetList extends Component {
               <FormControl
                  componentClass='select'
                  name='language'
+                 onChange={e => this.sortSnippets(e)}
                  value={this.state.sortLang}
                  >
                    <option value="all">All Snippets</option>
