@@ -6,12 +6,6 @@ import Panel from 'react-bootstrap/lib/Panel';
 import Col from 'react-bootstrap/lib/Col';
 
 class Snippets extends Component {
-  constructor(){
-    super()
-    this.state = {
-      sortLang: 'allSnippets'
-    };
-  }
 
   render(){
     var allSnippets = this.props.snippets.map(function(snippet, index){
@@ -33,8 +27,9 @@ class Snippets extends Component {
     return(
 
         <div>
-          
+
           { allSnippets }
+
         </div>
     )
   }

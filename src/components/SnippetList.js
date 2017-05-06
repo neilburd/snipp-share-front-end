@@ -7,26 +7,21 @@ import Col from 'react-bootstrap/lib/Col';
 import Row from 'react-bootstrap/lib/Row';
 
 class SnippetList extends Component {
-  constructor(){
-    super()
-    this.state = {
-      sortLang: 'javascript'
-    };
-  }
 
   render(){
     return(
       <div>
         <Row>
           <Col sm={12} md={6} className="marginBottom">
-            <form onSubmit={e => this.sortSnippets(e)}>
+            //<form onSubmit={e => this.props.sortSnippets(e)}>
             <FormGroup>
               <ControlLabel className="title">Sort by Language </ControlLabel>
               <FormControl
                  componentClass='select'
                  name='language'
-                 onChange={e => this.sortSnippets(e)}
-                 value={this.state.sortLang}
+                 value={this.props.sortLang}
+                 onChange={e => this.props.sortSnippets(e.target.value)}
+
                  >
                    <option value="all">All Snippets</option>
                    <option value="javascript">javascript</option>

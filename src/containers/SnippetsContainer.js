@@ -15,7 +15,9 @@ class SnippetsContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      snippets: []
+      snippets: [],
+      sortLang: 'all'
+
     }
   }
   componentDidMount(){
@@ -85,8 +87,18 @@ class SnippetsContainer extends Component{
 
   //sort snippets function
   sortSnippets(lang){
-    let allSnippets = this.state.snippets
+    let newSortedSnippets = []
+    let sortedSnippets = this.state.snippets.map(function(snippet, index){
 
+        console.log('this snippet is written in', snippet.language)
+
+
+    });
+
+    this.setState({
+      sortLang: lang
+    })
+    //console.log("sorted language", lang)
   }
 
   render(){
@@ -104,7 +116,10 @@ class SnippetsContainer extends Component{
             </Panel>
           </Col>
           {/*lists all the languages*/}
-          <SnippetList />
+          <SnippetList
+            sortLang={this.state.sortLang}
+            sortSnippets={this.sortSnippets.bind(this)}
+            />
           <Col xs={12} md={12} >
             {/* updateSnippet makes changes to the state of editSnippet to change editing mode
                 editThisSnippet changes the state of the snippet I'm editing */}
