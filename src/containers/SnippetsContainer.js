@@ -83,6 +83,12 @@ class SnippetsContainer extends Component{
     })
   }
 
+  //sort snippets function
+  sortSnippets(lang){
+    let allSnippets = this.state.snippets
+
+  }
+
   render(){
     let title = "new-snippet"
     return(
@@ -97,7 +103,8 @@ class SnippetsContainer extends Component{
                 />
             </Panel>
           </Col>
-<SnippetList />
+          {/*lists all the languages*/}
+          <SnippetList />
           <Col xs={12} md={12} >
             {/* updateSnippet makes changes to the state of editSnippet to change editing mode
                 editThisSnippet changes the state of the snippet I'm editing */}

@@ -10,7 +10,7 @@ class SnippetList extends Component {
   constructor(){
     super()
     this.state = {
-      sortLang: 'all'
+      sortLang: 'allSnippets'
     };
   }
 
