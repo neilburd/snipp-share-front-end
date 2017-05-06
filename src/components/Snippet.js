@@ -82,7 +82,7 @@ class Snippet extends Component {
           <Col sm={3} md={3} >
             <div>
               <CodeMirror
-                key={this.props.snippet.code}
+                key={this.props.snippet.id}
                 className='marginTop sideEditor'
                 name="code"
                 ref="snippet"
