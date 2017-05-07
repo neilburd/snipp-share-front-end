@@ -93,22 +93,29 @@ class SnippetsContainer extends Component{
     }
     let sortedSnippets = []
     let language = sort
-if (sort === 'date'){
+/* If statement to sort sort through the date options first then in the else the languages are sorted  */
+if (sort === 'dateNewest'){
     console.log('sorting by date')
     sortedSnippets = this.state.snippets.sort(compareNumbers)
     sortedSnippets.reverse()
     console.log(sortedSnippets)
 }
+else if (sort === 'dateOldest'){
+    console.log('sorting by date')
+    sortedSnippets = this.state.snippets.sort(compareNumbers)
+    console.log(sortedSnippets)
+}
 else {
     this.state.snippets.map(function(snippet, index){
-
-
       if(snippet.language === language){
         sortedSnippets.unshift(snippet)
+
       }
       else {
         sortedSnippets.push(snippet)
+
       }
+      return true
     });
 }
 

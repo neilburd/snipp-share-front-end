@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Snippet from './Snippet'
-import SnippetList from './SnippetList'
 
 import Panel from 'react-bootstrap/lib/Panel';
 import Col from 'react-bootstrap/lib/Col';
