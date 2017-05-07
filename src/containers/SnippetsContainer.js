@@ -94,8 +94,6 @@ class SnippetsContainer extends Component{
     let language = lang
     let sortedSnippets = []
 
-    console.log(sortedSnippets)
-
     this.state.snippets.map(function(snippet, index){
       if(snippet.language === language){
         sortedSnippets.unshift(snippet)
