@@ -16,6 +16,7 @@ class SnippetsContainer extends Component{
     super(props);
     this.state = {
       snippets: [],
+      sortedSnippets: [],
       sortLang: 'all'
 
     }
@@ -87,24 +88,25 @@ class SnippetsContainer extends Component{
 
   //sort snippets function
   sortSnippets(lang){
-    let newSortedSnippets = []
-    console.log(lang)
+    ///let newSortedSnippets = []
+    // console.log(lang)
     let language = lang
-    let sortedSnippets = this.state.snippets.map(function(snippet, index){
+    let sortedSnippets = this.state.snippets
+    sortedSnippets.map(function(snippet, index, array){
       if(snippet.language === language){
-        newSortedSnippets.push(snippet)
+        sortedSnippets.splice(index, 1)
+        sortedSnippets.push(snippet)
       }
         console.log('this snippet is written in', snippet.language)
         console.log(language)
 
     });
     this.setState({
-      snippets: newSortedSnippets
+      snippets: sortedSnippets
     })
     this.setState({
       sortLang: lang
     })
-    //console.log("sorted language", lang)
   }
 
   render(){
