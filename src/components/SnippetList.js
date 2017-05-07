@@ -24,8 +24,8 @@ class SnippetList extends Component {
 
                  >
                    <option value="all">All Snippets</option>
-                   
-                   <option value="date">date</option>
+
+                   <option value="date">date created</option>
 
                    <option value="javascript">javascript</option>
                    <option value="ruby">ruby</option>

@@ -87,11 +87,22 @@ class SnippetsContainer extends Component{
   }
 
   //sort snippets function
-  sortSnippets(lang){
-    let language = lang
+  sortSnippets(sort){
+    function compareNumbers(a, b) {
+      return a.created_at - b.created_at;
+    }
     let sortedSnippets = []
-
+    let language = sort
+if (sort === 'date'){
+    console.log('sorting by date')
+    sortedSnippets = this.state.snippets.sort(compareNumbers)
+    sortedSnippets.reverse()
+    console.log(sortedSnippets)
+}
+else {
     this.state.snippets.map(function(snippet, index){
+
+
       if(snippet.language === language){
         sortedSnippets.unshift(snippet)
       }
@@ -99,13 +110,13 @@ class SnippetsContainer extends Component{
         sortedSnippets.push(snippet)
       }
     });
-
+}
 
     this.setState({
       snippets: sortedSnippets
     })
     this.setState({
-      sortLang: lang
+      sortLang: sort
     })
   }
 
