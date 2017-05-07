@@ -37,7 +37,7 @@ class SnippetsContainer extends Component{
   }
   /// Had to use splice to remove the correct snippet from the array
   deleteSnippet(snippet){
-    console.log(snippet);
+    // console.log(snippet);
     let allSnippets = this.state.snippets
     let index = allSnippets.indexOf(snippet)
     SnippetModel.deleteSnippet(snippet).then(function(res){
@@ -88,9 +88,6 @@ class SnippetsContainer extends Component{
 
   //sort snippets function
   sortSnippets(lang){
-    // console.log('this snippet is written in', this.state.snippet.language)
-    // console.log(lang)
-
     let language = lang
     let sortedSnippets = []
 
